@@ -15,20 +15,16 @@ def input = "1208\t412\t743\t57\t1097\t53\t71\t1029\t719\t133\t258\t69\t1104\t37
         "2290\t157\t2759\t3771\t4112\t2063\t153\t3538\t3740\t130\t3474\t1013\t180\t2164\t170\t189\n" +
         "525\t1263\t146\t954\t188\t232\t1019\t918\t268\t172\t1196\t1091\t1128\t234\t650\t420"
 
-println input.split("\n").collect { it -> it.split("\t") }.collect { it -> it.collect { Integer.parseInt(it) } }
-        .collect { it -> [it.min(), it.max()] }.collect { it -> it[1] - it[0] }.sum()
+println input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }
+        .collect { [it.min(), it.max()] }.collect { it[1] - it[0] }.sum()
 
-def rows = input.split("\n").collect { it -> it.split("\t") }.collect { it -> it.collect { Integer.parseInt(it) } }
+def rows = input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }
 def sum = 0
-for (r in rows) {
-    for (int i = 0; i < r.size; ++i) {
-        for (int j = 0; j < r.size; ++j) {
-            if (i != j) {
-                if (r[i] % r[j] == 0) {
+for (r in rows)
+    for (int i = 0; i < r.size; ++i)
+        for (int j = 0; j < r.size; ++j)
+            if (i != j)
+                if (r[i] % r[j] == 0)
                     sum += r[i] / r[j]
-                }
-            }
-        }
-    }
-}
+
 println sum
