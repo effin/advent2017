@@ -18,13 +18,13 @@ def input = "1208\t412\t743\t57\t1097\t53\t71\t1029\t719\t133\t258\t69\t1104\t37
 println input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }
         .collect { [it.min(), it.max()] }.collect { it[1] - it[0] }.sum()
 
-def rows = input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }
 def sum = 0
-for (r in rows)
-    for (int i = 0; i < r.size; ++i)
-        for (int j = 0; j < r.size; ++j)
+input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }.each {
+    for (int i = 0; i < it.size; ++i)
+        for (int j = 0; j < it.size; ++j)
             if (i != j)
-                if (r[i] % r[j] == 0)
-                    sum += r[i] / r[j]
+                if (it[i] % it[j] == 0)
+                    sum += it[i] / it[j]
+}
 
 println sum
