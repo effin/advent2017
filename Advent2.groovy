@@ -16,7 +16,7 @@ def input = "1208\t412\t743\t57\t1097\t53\t71\t1029\t719\t133\t258\t69\t1104\t37
         "525\t1263\t146\t954\t188\t232\t1019\t918\t268\t172\t1196\t1091\t1128\t234\t650\t420"
 
 println input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }
-        .collect { [it.min(), it.max()] }.collect { it[1] - it[0] }.sum()
+        .collect { it.max() - it.min() }.sum()
 
 println input.split("\n").collect { it.split("\t") }.collect { it.collect { Integer.parseInt(it) } }.collect {
     for (int i = 0; i < it.size; ++i)
