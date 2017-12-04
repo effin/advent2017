@@ -1,7 +1,3 @@
-boolToString :: Bool -> String
-boolToString True = "TRUE"
-boolToString False = "FALSE"
-
 inList :: String -> [String] -> Bool
 inList x [] = False
 inList x xs = if x == head xs then True else inList x (tail xs)
