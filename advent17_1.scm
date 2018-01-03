@@ -1,0 +1,18 @@
+(define (spinlock state1 curr state2 steps val)
+  (if (equal? 0 steps)
+      (cons (reverse (cons curr (reverse state1))) (cons (cons val '()) (cons state2 '())))
+      (if (null? state2)
+          (if (null? state1)
+              (spinlock state1 curr state2 (- steps 1) val)
+              (spinlock state2 (car state1) (reverse (cons curr (reverse (cdr state1)))) (- steps 1) val))
+          (if (null? state1)
+              (spinlock (cons curr '()) (car state2) (cdr state2) (- steps 1) val)
+              (spinlock (reverse (cons curr (reverse state1))) (car state2) (cdr state2) (- steps 1) val))
+          )))
+
+(define (solve c state)
+  (if (equal? 2017 c)
+      (caaddr state)
+      (solve (+ c 1) (spinlock (car state) (caadr state) (caddr state) 314 (+ c 1)))))
+
+(solve 0 '(() (0) ()))
