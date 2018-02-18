@@ -25,5 +25,5 @@ Solutions to http://adventofcode.com/ in different languages.<br><br>
 21 nim<br>
 22 php<br>
 23 elixir<br>
-24 <br>
+24 ruby<br>
 25 <br>
