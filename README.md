@@ -1,6 +1,6 @@
 # advent2017
 
-Solutions to http://adventofcode.com/ in different languages.<br><br>
+Solutions to http://adventofcode.com/2017 in different languages.<br><br>
 
 1 java<br>
 2 groovy<br>
